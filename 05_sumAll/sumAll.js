@@ -1,24 +1,14 @@
-const sumAll = function(intOne, intTwo) {
-    if(typeof intOne !== "number" 
-        || typeof intTwo !== "number" 
-        || intOne < 0 
-        || intTwo < 0 
-        || !Number.isInteger(intOne) 
-        || !Number .isInteger(intTwo)){
+const sumAll = function(min, max) {
+    if(typeof min !== "number" 
+        || typeof max !== "number" 
+        || min < 0 
+        || max < 0 
+        || !Number.isInteger(min) 
+        || !Number .isInteger(max)){
         return 'ERROR';
     }
-    let larger = intTwo;
-    let smaller = intOne;
-    if (intOne > intTwo){
-        larger = intOne;
-        smaller = intTwo;
-    }
-    let res = 0;
-    while (larger >= smaller){
-        res += smaller;
-        smaller++;
-    }
-    return res;
+    if (min > max) [min, max] = [max, min];
+    return ((max*(max+1))-(min*(min-1)))/2;
 };
 
 // Do not edit below this line
